@@ -16,14 +16,15 @@ class CalculatorTest extends TestCase
         //Act
         $calculator = new Calculator();
         $sum = $calculator->sum($firstValue, $secondValue);
-        
+
         //Assert
-        $this->assertSame($expectedResult, $sum, 
+        $this->assertSame($expectedResult, $sum,
             "La méthode sum() ne fonctionne plus :-("
         );
     }
 
-    public function testMultiply(): void {
+    public function testMultiply(): void
+    {
         $firstValue = 5;
         $secondValue = 3;
         $expectedResult = 15;
@@ -31,17 +32,22 @@ class CalculatorTest extends TestCase
         $calculator = new Calculator();
         $product = $calculator->multiplication($firstValue, $secondValue);
 
-        $this->assertSame($expectedResult, $product,"La méthode multiply() ne fonctionne plus :-(");
+        $this->assertSame($expectedResult, $product, "La méthode multiply() ne fonctionne plus :-(");
     }
 
-    public function testIsEven(): void {
+    public function testIsEven(): void
+    {
         $number = 6;
-        $expectedTrueResult = true;
 
         $calculator = new Calculator();
         $isEven = $calculator->isEven($number);
+        if ($number % 2 === 0) {
 
-        $this->assertTrue($isEven, $expectedTrueResult, "La méthode isEvent() ne fonctionne plus :-(");
+            $this->assertTrue($isEven, "La méthode isEvent() ne fonctionne plus :-(");
+        } else {
+            $this->assertFalse($isEven, "La méthode isEvent() ne fonctionne plus :-(");
+        }
+
 
     }
 }
